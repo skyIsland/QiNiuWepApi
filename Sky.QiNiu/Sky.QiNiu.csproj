@@ -104,6 +104,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helper\QiniuHelper.cs" />
     <Compile Include="Models\文件信息.Biz.cs" />
     <Compile Include="Models\文件信息.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
