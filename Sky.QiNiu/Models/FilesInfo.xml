@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Tables Version="9.6.6557.38337" NameSpace="Sky.Models" ConnName="Conn" Output="" BaseClass="Entity">
+  <Table Name="FilesInfo" Description="文件信息" DbType="SqlServer">
+    <Columns>
+      <Column Name="Id" DataType="Int32" Identity="True" PrimaryKey="True" Description="Id" Primary="true" />
+      <Column Name="Name" DataType="String" Master="True" Length="500" Description="文件名称" />
+      <Column Name="InfoID" DataType="String" Description="Guid" />
+      <Column Name="FilePath" DataType="String" Description="文件链接" />
+      <Column Name="FileSize" DataType="String" Description="文件大小" />
+      <Column Name="IsImage" DataType="Boolean" Description="是否为图片" />
+      <Column Name="AddTime" DataType="DateTime" Description="添加时间" />
+    </Columns>
+  </Table>
+</Tables>
