@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27004.2006
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sky.QiNiu", "Sky.QiNiu\Sky.QiNiu.csproj", "{40E0175A-3E50-43F5-AE34-DE6D52CEA242}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sky.Test", "Sky.Test\Sky.Test.csproj", "{84FFC42A-40DB-4D32-A230-4945A50D7883}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sky.Mvc.Test", "Sky.Mvc.Test\Sky.Mvc.Test.csproj", "{BC91D978-3CEA-4BBE-B843-21CAB5B598E0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{40E0175A-3E50-43F5-AE34-DE6D52CEA242}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40E0175A-3E50-43F5-AE34-DE6D52CEA242}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40E0175A-3E50-43F5-AE34-DE6D52CEA242}.Release|Any CPU.Build.0 = Release|Any CPU
-		{84FFC42A-40DB-4D32-A230-4945A50D7883}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{84FFC42A-40DB-4D32-A230-4945A50D7883}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{84FFC42A-40DB-4D32-A230-4945A50D7883}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{84FFC42A-40DB-4D32-A230-4945A50D7883}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC91D978-3CEA-4BBE-B843-21CAB5B598E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC91D978-3CEA-4BBE-B843-21CAB5B598E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC91D978-3CEA-4BBE-B843-21CAB5B598E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC91D978-3CEA-4BBE-B843-21CAB5B598E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

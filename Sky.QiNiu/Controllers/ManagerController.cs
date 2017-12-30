@@ -1,23 +1,32 @@
 ﻿using Qiniu.Http;
 using Qiniu.Storage;
 using Qiniu.Util;
+using Sky.QiNiu.Helper;
+using Sky.QiNiu.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Web;
 using System.Web.Http;
 
 namespace Sky.QiNiu.Controllers
 {
     public class ManagerController : ApiController
     {
-        private readonly string AccessKey = System.Configuration.ConfigurationManager.AppSettings["Ak"];
-        private readonly string SecretKey = System.Configuration.ConfigurationManager.AppSettings["Sk"];
+        private QiniuHelper client;
+        private ManagerController()
+        {
+            string accessKey = System.Configuration.ConfigurationManager.AppSettings["AccessKey"];
+            string secretKey = System.Configuration.ConfigurationManager.AppSettings["SecretKey"];
+            string bucket= System.Configuration.ConfigurationManager.AppSettings["Bucket"];
+            client = new QiniuHelper(accessKey, secretKey, bucket);
+        }
         [HttpGet]
         public string UploadFile(string filePath)
         {
-            Mac mac = new Mac(AccessKey, SecretKey);
+            Mac mac = new Mac("", "");
             // 上传文件名
             string key = "key";
             // 本地文件路径           
@@ -41,6 +50,16 @@ namespace Sky.QiNiu.Controllers
             HttpResult result = target.UploadFile(filePath, key, token, null);
 
             return result.ToString();
+        }
+        /// <summary>
+        /// 单文件上传
+        /// </summary>
+        /// <returns></returns>
+        [Route("/Api/UploadFiles")]
+        public ResultInfo<object> UploadFiles()
+        {
+            var result = client.UploadFiles(HttpContext.Current.Request.Files[0]);
+            return result;
         }
     }
 }
