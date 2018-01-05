@@ -27,12 +27,12 @@ namespace Sky.QiNiu.Controllers
         [Route("Api/UploadFile")]
         public string UploadFile(string filePath)
         {
-            Mac mac = new Mac("", "");
+            Mac mac = new Mac(System.Configuration.ConfigurationManager.AppSettings["AccessKey"], System.Configuration.ConfigurationManager.AppSettings["SecretKey"]);
             // 上传文件名
-            string key = "key";
+            string key = Guid.NewGuid().ToString();
             // 本地文件路径           
             // 存储空间名
-            string Bucket = "file";
+            string Bucket = System.Configuration.ConfigurationManager.AppSettings["Bucket"];
             // 设置上传策略，详见：https://developer.qiniu.com/kodo/manual/1206/put-policy
             PutPolicy putPolicy = new PutPolicy();
             putPolicy.Scope = Bucket;
