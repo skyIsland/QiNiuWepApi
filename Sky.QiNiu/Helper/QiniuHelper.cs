@@ -110,7 +110,7 @@ namespace Sky.QiNiu.Helper
                     result.Message = "文件已存在";
                     break;
                 default:
-                    result.Message = "文件上传失败";
+                    result.Message = res.Code+"文件上传失败";
                     break;
             }
             return result;

@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 col-md-offset-3">
+            <form id= "uploadForm">  
+                <p >指定文件名： <input type="text" name="filename" value= ""/></p >  
+                <p >上传文件： <input type="file" name="file"/></ p>  
+                <input type="button" value="上传" onclick="upload()" />  
+            </form>  
+        </div>
+    </div>
+</div>
+
+<script>
+    function upload() {
+        var fd = new FormData($("#uploadForm")[0]);
+        fd.append("CustomField", "额外数据");
+        $.ajax({
+            url: "http://localhost:1888/api/UploadFiles",
+            type: "POST",
+            dataType:"JSONP",
+            data: fd,
+            contentType: false,  //因为是由<form>表单构造的FormData对象
+            processData: false,  //因为data值是FormData对象，不需要对数据做处理。
+            success:function(result) {
+               if (result.Result) {
+                   alert('上传成功');
+               } else {
+                   alert(result.Message);
+               }
+           }
+        });
+    }
+    function doUpload() {  
+        var formData = new FormData($( "#uploadForm" )[0]);  
+        $.ajax({  
+            url: "/UploadFile/",
+            type: 'POST',  
+            data: formData,  
+            dataType: "JSON",
+            //async: false,  
+            //cache: false,  
+            contentType: false,  
+            processData: false,  
+            success: function (result) {  
+                if (result.Result) {
+                    alert('上传成功');
+                } else {
+                    alert(result.Message);
+                }
+            },  
+            error: function (returndata) {  
+                alert(returndata);  
+            }  
+        });  
+    }  
+</script>

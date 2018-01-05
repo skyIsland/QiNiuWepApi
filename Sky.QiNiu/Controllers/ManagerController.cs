@@ -24,6 +24,7 @@ namespace Sky.QiNiu.Controllers
             client = new QiniuHelper(accessKey, secretKey, bucket);
         }
         [HttpGet]
+        [Route("Api/UploadFile")]
         public string UploadFile(string filePath)
         {
             Mac mac = new Mac("", "");
@@ -55,7 +56,7 @@ namespace Sky.QiNiu.Controllers
         /// 单文件上传
         /// </summary>
         /// <returns></returns>
-        [Route("/Api/UploadFiles")]
+        [Route("Api/UploadFiles")]
         public ResultInfo<object> UploadFiles()
         {
             var result = client.UploadFiles(HttpContext.Current.Request.Files[0]);
