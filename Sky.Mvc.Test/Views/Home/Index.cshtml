@@ -7,8 +7,9 @@
         <div class="col-md-3 col-md-offset-3">
             <form id= "uploadForm">  
                 <p >指定文件名： <input type="text" name="filename" value= ""/></p >  
-                <p >上传文件： <input type="file" name="file"/></ p>  
-                <input type="button" value="上传" onclick="upload()" />  
+                <p >上传文件： <input type="file" id="file" name="file"/></p>  
+                <input type="button" value="上传(文件)" onclick="upload()" />  
+                <input type="button" value="上传(文件路径)" onclick="doUpload()" />  
             </form>  
         </div>
     </div>
@@ -35,16 +36,20 @@
         });
     }
     function doUpload() {  
-        var formData = new FormData($( "#uploadForm" )[0]);  
+        var filePath = $('#file').val();
+        if (!filePath) {
+            alert('请先选择文件!');
+            return;
+        }
         $.ajax({  
-            url: "/UploadFile/",
-            type: 'POST',  
-            data: formData,  
+            url: "http://localhost:1888/api/UploadFile",
+            type: 'GET',  
+            data: { filePath: filePath},  
             dataType: "JSON",
             //async: false,  
-            //cache: false,  
-            contentType: false,  
-            processData: false,  
+            cache: false,  
+           // contentType: false,  
+           // processData: false,  
             success: function (result) {  
                 if (result.Result) {
                     alert('上传成功');
